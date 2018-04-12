@@ -1,0 +1,23 @@
+package howToUseLambdaExpressions;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class UseLambdaExpressions {
+
+	/*
+	 * this method is using Lambda Expressions.
+	 * Comparing with "NotUseLambdaExpressions"
+	 */
+	public static void main(String[] args) {
+		long start = System.currentTimeMillis();
+		List<Integer> list = new ArrayList<Integer>();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		list.add(4);
+		list.forEach(i -> System.out.println(i*2));
+		long end = System.currentTimeMillis();
+		System.out.println("excuting time is" + (end - start));
+	}
+}
