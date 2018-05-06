@@ -36,15 +36,15 @@ public class Main {
 		Map<String, Integer> map = new HashMap<String, Integer>();
 
 		// ローマ数字へ変換する値を一つずつ変換していく
-		for (int num : numbers) {
+		for (int arabic : numbers) {
 			// 定数として宣言されている値はそのままローマ数字に変換する
-			if (RomanEnum.isInRomanEnum(num)) {
-				romReturn[i] = RomanEnum.getRoman(num);
+			if (RomanEnum.isInRomanEnum(arabic)) {
+				romReturn[i] = RomanEnum.getRoman(arabic);
 
 			} else {
 				// 定数に宣言されていない値は定数を使いながらローマ数字へ変換していく
 				str = new StringBuffer();
-				rem = num;
+				rem = arabic;
 				while (rem != 0) {
 					// 値を割って除数と余りを算出
 					map = RomanEnum.getQuotAndRem(rem);

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 数字とローマ数字を取り扱うENUM
+ * アラビア数字とローマ数字を取り扱うEnum
  */
 public enum RomanEnum {
 
@@ -26,7 +26,7 @@ public enum RomanEnum {
 	, II(2, "II")
 	, I(1, "I");
 
-	private int num;
+	private int arabic;
 	private String roman;
 	private static Map<Integer, String> mapValue = new HashMap();
 
@@ -36,18 +36,18 @@ public enum RomanEnum {
 	private final static String REMAINDER = "remainder";
 
 	private RomanEnum(int num, String roman) {
-		this.num = num;
+		this.arabic = num;
 		this.roman = roman;
 	}
 
-	public int getNum() {
-		return num;
+	public int getArabic() {
+		return arabic;
 	}
 
 	// フィールドの値をMap型で全て取得
 	public static Map<Integer, String> getMapValue() {
 		for (RomanEnum compareObj: values()) {
-			mapValue.put(compareObj.num, compareObj.roman);
+			mapValue.put(compareObj.arabic, compareObj.roman);
 		}
 		return mapValue;
 	}
@@ -60,7 +60,7 @@ public enum RomanEnum {
 	// フィールドに値が存在する
 	public static boolean isInRomanEnum(int i) {
 		for (RomanEnum compareObj: values()) {
-			if (compareObj.getNum() == i) {
+			if (compareObj.getArabic() == i) {
 				return true;
 			}
 		}
@@ -71,9 +71,9 @@ public enum RomanEnum {
 	public static Map<String, Integer> getQuotAndRem(int i) {
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		for (RomanEnum compareObj: values()) {
-			if (i / compareObj.getNum() >= 1) {
-				map.put(DIVISOR, compareObj.getNum());
-				map.put(REMAINDER, i - compareObj.getNum());
+			if (i / compareObj.getArabic() >= 1) {
+				map.put(DIVISOR, compareObj.getArabic());
+				map.put(REMAINDER, i - compareObj.getArabic());
 				break;
 			}
 		}
